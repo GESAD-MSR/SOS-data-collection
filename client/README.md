@@ -1,0 +1,1 @@
+# Client app for interacting with the management system
