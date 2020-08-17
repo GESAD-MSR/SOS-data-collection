@@ -1,5 +1,5 @@
 # Poetry data
-pyproject.toml/
+pyproject.toml
 
 # VScode metadata
 .vscode/
