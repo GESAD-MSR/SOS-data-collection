@@ -1,15 +1,31 @@
 
-from flask import Flask
+from flask import Flask, request, jsonify
 from flask_restful import Api, Resource
+from flask_mongoengine import MongoEngine
+from .config.app_config import evn_config
+from mongoengine import Document, StringField, IntField
+
+
+class TechnologyData(Document):
+    name = StringField()
+    value = IntField()
+
+
+class TechnologyInfo(Resource):
+
+    def get(self):
+        doc = TechnologyData.objects().first()
+        return jsonify(doc)
 
 
 def create_app(config_name: str):
     app = Flask(__name__)
+    app.config.from_object(evn_config[config_name])
+    evn_config[config_name].init_app(app)
+
     api = Api(app)
+    db = MongoEngine(app)
 
-    class HelloWorld(Resource):
-        def get(self):
-            return {'hello': 'world'}
+    api.add_resource(TechnologyInfo, '/')
 
-    api.add_resource(HelloWorld, '/')
     return app
