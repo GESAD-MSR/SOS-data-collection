@@ -1,5 +1,5 @@
 from collections.abc import ABC, abstractmethod
-from typing import NoReturn
+from typing import NoReturn, List
 
 from ..entity.technology import Technology
 
@@ -7,7 +7,7 @@ from ..entity.technology import Technology
 class TechnologyBase(ABC):
 
     @abstractmethod
-    def create(self, tech: Technology) -> NoReturn:
+    def perssit(self, tech: Technology) -> NoReturn:
         raise NotImplementedError()
 
     @abstractmethod
@@ -15,7 +15,15 @@ class TechnologyBase(ABC):
         raise NotImplementedError()
 
     @abstractmethod
+    def find_by_uid(self, u_id: str) -> NoReturn:
+        raise NotImplementedError()
+
+    @abstractmethod
     def update(self, tech: Technology) -> NoReturn:
+        raise NotImplementedError()
+
+    @abstractmethod
+    def add_tags(self, tech: Technology, new_tags: List[str]) -> NoReturn:
         raise NotImplementedError()
 
     @abstractmethod
