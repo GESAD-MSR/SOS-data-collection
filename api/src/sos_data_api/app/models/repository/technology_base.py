@@ -23,7 +23,7 @@ class TechnologyBase(ABC):
         raise NotImplementedError()
 
     @abstractmethod
-    def add_tags(self, tech: Technology, new_tags: List[str]) -> NoReturn:
+    def add_tags_by_name(self, tech: Technology, new_tags: List[str]) -> NoReturn:
         raise NotImplementedError()
 
     @abstractmethod
