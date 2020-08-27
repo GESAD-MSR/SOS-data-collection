@@ -1,10 +1,10 @@
-from typing import List
+from typing import List, Optional
 
 
 class Technology(object):
     """docstring"""
 
-    def __init__(self, u_id: str name: str, tags: List[str]):
+    def __init__(self, name: str, tags: List[str], u_id: Optional[str] = None,):
         self.__u_id = u_id
         self.__name = name
         self.__tags = tags
