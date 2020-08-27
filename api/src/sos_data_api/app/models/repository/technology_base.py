@@ -1,4 +1,4 @@
-from collections.abc import ABC, abstractmethod
+from abc import ABC, abstractmethod
 from typing import NoReturn, List
 
 from ..entity.technology import Technology

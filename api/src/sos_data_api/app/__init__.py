@@ -4,18 +4,19 @@ from flask_restful import Api, Resource
 from flask_mongoengine import MongoEngine
 from .config.app_config import evn_config
 from mongoengine import Document, StringField, IntField
+from .web.resources.technology import Technology
 
 
-class TechnologyData(Document):
-    name = StringField()
-    value = IntField()
+# class TechnologyData(Document):
+#     name = StringField()
+#     value = IntField()
 
 
-class TechnologyInfo(Resource):
+# class TechnologyInfo(Resource):
 
-    def get(self):
-        doc = TechnologyData.objects().first()
-        return jsonify(doc)
+#     def get(self):
+#         doc = TechnologyData.objects().first()
+#         return jsonify(doc)
 
 
 def create_app(config_name: str):
@@ -26,6 +27,6 @@ def create_app(config_name: str):
     api = Api(app)
     db = MongoEngine(app)
 
-    api.add_resource(TechnologyInfo, '/')
+    api.add_resource(Technology, '/')
 
     return app
