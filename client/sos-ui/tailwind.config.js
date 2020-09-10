@@ -6,6 +6,8 @@ module.exports = {
   theme: {
     extend: {}
   },
-  variants: {},
+  variants: {
+    borderColor: ["responsive", "hover", "active", "focus"]
+  },
   plugins: []
 };

@@ -1,12 +1,10 @@
 <template>
   <div id="app">
-    <header>
+    <div class="bg-gray-800 flex flex-col items-center w-screen h-screen">
       <navbar />
-    </header>
-    <div class="bg-gray-800 w-full h-screen p-32">
-      <router-view />
+      <router-view class="bg-gray-200 mt-5 w-full p-12 rounded shadow-md" />
     </div>
-    <footer></footer>
+    <!-- <footer></footer> -->
   </div>
 </template>
 
