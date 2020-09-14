@@ -3,6 +3,7 @@ import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
 
 import AddTechnology from '@/views/Technology/Add.vue'
+import ListTechnology from '@/views/Technology/List.vue'
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,11 @@ const routes: Array<RouteConfig> = [
     path: '/add',
     name: 'Add',
     component: AddTechnology
+  },
+  {
+    path: '/list',
+    name: 'List',
+    component: ListTechnology
   },
   {
     path: '/about',
