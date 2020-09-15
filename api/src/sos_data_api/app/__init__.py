@@ -7,18 +7,6 @@ from mongoengine import Document, StringField, IntField
 from .web.resources.technology import Technology
 
 
-# class TechnologyData(Document):
-#     name = StringField()
-#     value = IntField()
-
-
-# class TechnologyInfo(Resource):
-
-#     def get(self):
-#         doc = TechnologyData.objects().first()
-#         return jsonify(doc)
-
-
 def create_app(config_name: str):
     app = Flask(__name__)
     app.config.from_object(evn_config[config_name])
