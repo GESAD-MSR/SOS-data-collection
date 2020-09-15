@@ -1,7 +1,7 @@
 from typing import List, Optional
 
 
-class Technology(object):
+class TechnologyEntity(object):
     """docstring"""
 
     def __init__(self, name: str, tags: List[str], u_id: Optional[str] = None,):
@@ -32,3 +32,10 @@ class Technology(object):
     @tags.setter
     def tags(self, new_tags) -> None:
         self.__tags = new_tags
+
+    def to_dict(self):
+        return {
+            '_id': self.__u_id,
+            'name': self.__name,
+            'tags': self.__tags
+        }

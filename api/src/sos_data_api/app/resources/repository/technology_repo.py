@@ -3,16 +3,17 @@ TODO
     update
     add_tags_by_name
 """
+
 from typing import Iterable
 
-from ...models.entity.technology import Technology
 from ..collections.technology_data import TechnologyData
+from ...models.entity.technology_entity import TechnologyEntity
 from ...models.repository.technology_base import TechnologyBase
 
 
 class TechnologyRepo(TechnologyBase):
 
-    def perssit(self, tech: Technology) -> None:
+    def persist(self, tech: TechnologyEntity) -> None:
         """docstring"""
         TechnologyData(name=tech.name, tags=tech.tags).save()
 
@@ -24,7 +25,7 @@ class TechnologyRepo(TechnologyBase):
         """docstring"""
         return TechnologyData.objects(id=u_id)
 
-    def update(self, tech: Technology) -> None:
+    def update(self, tech: TechnologyEntity) -> None:
         """TODO"""
         doc = self.find_by_uid(tech.u_id)
         doc = None
@@ -39,7 +40,7 @@ class TechnologyRepo(TechnologyBase):
         # check if id does upsert!
         self.perssit(tech)
 
-    def delete(self, tech: Technology) -> None:
+    def delete(self, tech: TechnologyEntity) -> None:
         """TODO"""
         doc = self.find_by_uid(tech.u_id)
         doc.delete()
