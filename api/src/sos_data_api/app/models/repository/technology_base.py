@@ -1,13 +1,13 @@
 from abc import ABC, abstractmethod
 from typing import NoReturn, List
 
-from ..entity.technology import Technology
+from ..entity.technology_entity import TechnologyEntity
 
 
 class TechnologyBase(ABC):
 
     @abstractmethod
-    def perssit(self, tech: Technology) -> NoReturn:
+    def persist(self, tech: TechnologyEntity) -> NoReturn:
         raise NotImplementedError()
 
     @abstractmethod
@@ -19,13 +19,13 @@ class TechnologyBase(ABC):
         raise NotImplementedError()
 
     @abstractmethod
-    def update(self, tech: Technology) -> NoReturn:
+    def update(self, tech: TechnologyEntity) -> NoReturn:
         raise NotImplementedError()
 
     @abstractmethod
-    def add_tags_by_name(self, tech: Technology, new_tags: List[str]) -> NoReturn:
+    def add_tags_by_name(self, tech: TechnologyEntity, new_tags: List[str]) -> NoReturn:
         raise NotImplementedError()
 
     @abstractmethod
-    def delete(self, tech: Technology) -> NoReturn:
+    def delete(self, tech: TechnologyEntity) -> NoReturn:
         raise NotImplementedError()
