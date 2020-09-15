@@ -8,6 +8,8 @@ from .web.resources.technology import Technology
 
 
 def create_app(config_name: str):
+    """TODO docstring"""
+
     app = Flask(__name__)
     app.config.from_object(evn_config[config_name])
     evn_config[config_name].init_app(app)
