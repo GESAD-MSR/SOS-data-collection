@@ -52,7 +52,9 @@ export default Vue.extend({
   },
 
   methods: {
-    onSubmit() {
+    onSubmit(event: any) {
+      event.preventDefault();
+
       const tagsList: Array<string> = this.tags
         .split(",")
         .map((item: string) => {
@@ -68,10 +70,12 @@ export default Vue.extend({
       };
 
       console.log(tagsList);
-      axios
-        .post("http://127.0.0.1:5000", formData)
+      const resp = axios
+        .post("http://127.0.0.1:5000/", formData)
         .then((res) => console.log(res))
         .catch((error) => console.log(error));
+
+      console.log(resp);
     },
 
     clearTags: function () {
