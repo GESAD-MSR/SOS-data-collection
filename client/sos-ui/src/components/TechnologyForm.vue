@@ -71,11 +71,9 @@ export default Vue.extend({
 
       console.log(tagsList);
       const resp = axios
-        .post("http://127.0.0.1:5000/", formData)
+        .post("http://127.0.0.1:5000/tech/save", formData)
         .then((res) => console.log(res))
         .catch((error) => console.log(error));
-
-      console.log(resp);
     },
 
     clearTags: function () {
