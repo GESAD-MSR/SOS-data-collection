@@ -19,6 +19,10 @@ class TechnologyBase(ABC):
         raise NotImplementedError()
 
     @abstractmethod
+    def find_all(self) -> NoReturn:
+        raise NotImplementedError()
+
+    @abstractmethod
     def update(self, tech: TechnologyEntity) -> NoReturn:
         raise NotImplementedError()
 

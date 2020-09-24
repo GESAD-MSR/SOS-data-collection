@@ -13,11 +13,6 @@ class Technology(Resource):
         super().__init__()
         self.repository = TechnologyRepo()
 
-    def get(self):
-        # doc = TechnologyData.objects().first()
-        doc = self.repository.find_by_uid("5f42ff247a12fb6d8886b0fb")
-        return jsonify(doc)
-
     def post(self):
         print('request here')
         request_body = request.get_json()
@@ -30,8 +25,6 @@ class Technology(Resource):
 
         self.repository.persist(new_tech)
 
-        print(new_tech.to_dict())
-
         return jsonify(new_tech.to_dict())
 
 
@@ -42,6 +35,5 @@ class TechnologyList(Resource):
         self.repository = TechnologyRepo()
 
     def get(self):
-        # doc = TechnologyData.objects().first()
-        docs = TechnologyData.objects()
+        docs = self.repository.find_all()
         return jsonify(docs)
