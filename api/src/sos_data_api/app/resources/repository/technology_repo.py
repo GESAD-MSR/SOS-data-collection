@@ -4,7 +4,7 @@ TODO
     add_tags_by_name
 """
 
-from typing import Iterable
+from typing import Iterable, List
 
 from ..collections.technology_data import TechnologyData
 from ...models.entity.technology_entity import TechnologyEntity
@@ -24,6 +24,9 @@ class TechnologyRepo(TechnologyBase):
     def find_by_uid(self, u_id: str) -> None:
         """docstring"""
         return TechnologyData.objects(id=u_id)
+
+    def find_all(self) -> List[dict]:
+        return TechnologyData.objects()
 
     def update(self, tech: TechnologyEntity) -> None:
         """TODO"""
